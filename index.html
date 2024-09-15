@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Drawing</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #canvas-container {
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        #drawing-canvas {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+        }
+        #erase-btn {
+            width: 200px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #letter-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 20px;
+            align-items: flex-end;
+            height: auto;
+            max-width: calc(100% - 240px); /* Adjust based on canvas width and margin */
+        }
+        .letter-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .similarity-bar {
+            width: 20px;
+            height: 150px;
+            background-color: #ddd;
+            margin-bottom: 5px;
+            display: flex;
+            flex-direction: column-reverse;
+            overflow: hidden;
+        }
+        .similarity-fill {
+            width: 100%;
+        }
+        .similarity-match {
+            background-color: #4CAF50;
+        }
+        .similarity-mismatch {
+            background-color: #FF5252;
+        }
+        #visualization {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            width: 100%;
+        }
+        #grid-visualization, #dataset-visualization {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .grid-cell {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            margin: 1px;
+        }
+        .filled {
+            background-color: #000;
+        }
+        .dataset-letter {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="drawing-canvas" width="200" height="200"></canvas>
+        <button id="erase-btn">Erase</button>
+    </div>
+    <div id="letter-list"></div>
+    <div id="visualization">
+        <h3>Dataset Comparison</h3>
+        <div id="dataset-visualization"></div>
+    </div>
+
+    <script src="letterDataset.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
